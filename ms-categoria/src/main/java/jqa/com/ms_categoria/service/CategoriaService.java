@@ -1,16 +1,13 @@
-package jqa.ms_categoria.service;
+package jqa.com.ms_categoria.service;
 
-import jqa.ms_categoria.entity.Categoria;
+import jqa.com.ms_categoria.entity.Categoria;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
-
+import java.util.*;
 @Service
 public interface CategoriaService {
-    public List<Categoria> lista();
+    List<Categoria> lista();
     Categoria guardar(Categoria categoria);
     Optional<Categoria> buscarPorId(Integer id);
     Categoria actualizar(Categoria categoria);
-    void eliminar(Integer id);
+    void eleminar(Integer id);
 }

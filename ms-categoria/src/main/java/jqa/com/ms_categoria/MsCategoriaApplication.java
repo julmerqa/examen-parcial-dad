@@ -1,4 +1,4 @@
-package jqa.ms_categoria;
+package jqa.com.ms_categoria;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -17,9 +17,9 @@ public class MsCategoriaApplication {
 	@Bean
 	public OpenAPI customOpenAPI() {
 		return new OpenAPI().info(new Info()
-				.title("MS_Categoria")
+				.title("GWCL Microservicio Categoria")
 				.version("0.0.1")
-				.description("MS_Categoria")
+				.description("Servicio web categoria")
 				.termsOfService("http://swagger.io/terms")
 				.license(new License().name("Apache 2.0").url("http://springdoc.org"))
 		);

@@ -1,9 +1,6 @@
-package jqa.ms_categoria.entity;
+package jqa.com.ms_categoria.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity

@@ -1,15 +1,13 @@
-package jqa.ms_categoria.service.impl;
+package jqa.com.ms_categoria.service.impl;
 
-import jqa.ms_categoria.entity.Categoria;
-import jqa.ms_categoria.repository.CategoriaRepository;
-import jqa.ms_categoria.service.CategoriaService;
+import jqa.com.ms_categoria.entity.Categoria;
+import jqa.com.ms_categoria.repository.CategoriaRepository;
+import jqa.com.ms_categoria.service.CategoriaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
+import java.util.*;
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
     @Autowired
@@ -17,26 +15,30 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public List<Categoria> lista() {
+
         return categoriaRepository.findAll();
     }
 
     @Override
     public Categoria guardar(Categoria categoria) {
+
         return categoriaRepository.save(categoria);
     }
 
     @Override
     public Optional<Categoria> buscarPorId(Integer id) {
+
         return categoriaRepository.findById(id);
     }
 
     @Override
     public Categoria actualizar(Categoria categoria) {
+
         return categoriaRepository.save(categoria);
     }
 
     @Override
-    public void eliminar(Integer id) {
+    public void eleminar(Integer id) {
         categoriaRepository.deleteById(id);
 
     }

@@ -1,13 +1,14 @@
-package jqa.ms_categoria.controller;
+package jqa.com.ms_categoria.controller;
 
-import jqa.ms_categoria.entity.Categoria;
-import jqa.ms_categoria.service.CategoriaService;
+import jqa.com.ms_categoria.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import jqa.com.ms_categoria.entity.Categoria;
 
+
+import java.util.*;
 @RestController
 @RequestMapping("/categoria")
 public class CategoriaController {
@@ -34,8 +35,8 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.actualizar((categoria)));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<List<Categoria>> eliminar(@PathVariable(required = true) Integer id){
-        categoriaService.eliminar(id);
+    public ResponseEntity<List<Categoria>> eleminar(@PathVariable(required = true) Integer id){
+        categoriaService.eleminar(id);
         return ResponseEntity.ok(categoriaService.lista());
 
     }
