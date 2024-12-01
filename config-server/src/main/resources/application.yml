@@ -9,7 +9,7 @@ spring:
     config:
       server:
         git:
-          uri:  #Reposritorio Github
+          uri: https://github.com/julmerqa/examen-parcial-dad.git #Reposritorio Github
           searchPaths: config-data
           default-label: main #Rama de tu repositorio
 
