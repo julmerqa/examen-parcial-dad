@@ -1,4 +1,4 @@
-package jqa.ms_auth;
+package gwcl.com.ms_auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

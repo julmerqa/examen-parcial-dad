@@ -1,14 +1,11 @@
-package jqa.ms_auth.entity;
+package gwcl.com.ms_auth.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -18,8 +15,15 @@ import javax.persistence.Id;
 public class AuthUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String userName;
     private String password;
-}
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public enum Role{
+        USER_ADMIN,
+        USER_DEFAULT
+    }
+}
