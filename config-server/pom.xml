@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Define la versión del modelo de POM utilizada -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Especifica el padre del proyecto, en este caso, el "starter" de Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.1.10</version> <!-- Versión de Spring Boot -->
+		<relativePath/> <!-- Usa el parent desde el repositorio central -->
+	</parent>
+
+	<!-- Define la información básica del proyecto -->
+	<groupId>fr.com</groupId>
+	<artifactId>ms-config-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ms-config-server</name>
+	<description>Configuracion Centralizada</description>
+
+	<!-- Propiedades globales del proyecto -->
+	<properties>
+		<java.version>17</java.version> <!-- Versión de Java -->
+		<spring-cloud.version>2022.0.5</spring-cloud.version> <!-- Versión de Spring Cloud -->
+	</properties>
+
+	<!-- Dependencias del proyecto -->
+	<dependencies>
+		<!-- Starter para la seguridad en Spring Boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- Starter para configurar el servidor de configuración centralizada -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+
+		<!-- Starter para pruebas en Spring Boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope> <!-- Solo se usa en el entorno de pruebas -->
+		</dependency>
+
+		<!-- Dependencia para realizar pruebas relacionadas con seguridad -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope> <!-- Solo se usa en el entorno de pruebas -->
+		</dependency>
+	</dependencies>
+
+	<!-- Gestión centralizada de dependencias -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Gestión de las dependencias de Spring Cloud -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope> <!-- Indica que este POM define dependencias que pueden ser utilizadas en este proyecto -->
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- Configuración de construcción del proyecto -->
+	<build>
+		<plugins>
+			<!-- Plugin de Maven para construir aplicaciones Spring Boot -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- Configuración para crear imágenes de contenedores utilizando Buildpacks -->
+					<image>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder> <!-- Define el builder utilizado -->
+					</image>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
