@@ -1,6 +1,6 @@
-package com.example.msauth.repository;
+package jqa.ms_auth.repository;
 
-import com.example.msauth.entity.AuthUser;
+import jqa.ms_auth.entity.AuthUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

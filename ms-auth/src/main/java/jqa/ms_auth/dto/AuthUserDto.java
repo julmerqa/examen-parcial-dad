@@ -1,4 +1,4 @@
-package com.example.msauth.dto;
+package jqa.ms_auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

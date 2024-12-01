@@ -1,4 +1,4 @@
-package com.example.msauth.entity;
+package jqa.ms_auth.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

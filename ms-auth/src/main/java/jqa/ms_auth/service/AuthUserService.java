@@ -1,8 +1,8 @@
-package com.example.msauth.service;
+package jqa.ms_auth.service;
 
-import com.example.msauth.dto.AuthUserDto;
-import com.example.msauth.entity.AuthUser;
-import com.example.msauth.entity.TokenDto;
+import jqa.ms_auth.dto.AuthUserDto;
+import jqa.ms_auth.entity.AuthUser;
+import jqa.ms_auth.entity.TokenDto;
 
 public interface AuthUserService {
     public AuthUser save(AuthUserDto authUserDto);

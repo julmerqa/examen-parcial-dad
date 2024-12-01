@@ -1,52 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Define la versión del modelo de POM utilizada -->
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Define el padre del proyecto, el cual es el "starter" de Spring Boot -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>3.2.4</version>		<!-- Versión de Spring Boot -->
+		<relativePath/>
+		<!-- Usa el parent desde el repositorio central -->
 	</parent>
-	<groupId>jqa</groupId>
-	<artifactId>gateway-server</artifactId>
+
+	<!-- Información básica del proyecto -->
+	<groupId>fr.com</groupId>
+	<artifactId>ms-gateway-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gateway-server</name>
-	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+	<name>ms-gateway-server</name>
+	<description>Configuracion Centralizada</description>
+
+	<!-- Propiedades del proyecto -->
 	<properties>
-		<java.version>17</java.version>
+		<java.version>17</java.version>		<!-- Versión de Java -->
+		<spring-cloud.version>2023.0.1</spring-cloud.version>		<!-- Versión de Spring Cloud -->
 	</properties>
+
+	<!-- Dependencias del proyecto -->
 	<dependencies>
+		<!-- Dependencia para usar el servidor de configuración centralizado -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 
+		<!-- Dependencia para habilitar Spring Cloud Gateway -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+
+		<!-- Dependencia para que el servicio actúe como cliente de Eureka -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<!-- Dependencia para pruebas en Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<scope>test</scope>			<!-- Solo se usa en el entorno de pruebas -->
+		</dependency>
+
+		<!-- Librería Lombok para reducir la escritura de código boilerplate (getters, setters, etc.) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>			<!-- Opcional, no será incluida por defecto en los artefactos -->
 		</dependency>
 	</dependencies>
 
+	<!-- Gestión centralizada de versiones de dependencias -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Gestión de dependencias de Spring Cloud -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>				<!-- Importa las versiones gestionadas -->
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- Configuración de construcción del proyecto -->
 	<build>
 		<plugins>
+			<!-- Plugin de Maven para construir aplicaciones Spring Boot -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- Excluye Lombok del artefacto generado -->
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -1,6 +1,6 @@
-package com.example.msauth.security;
+package jqa.ms_auth.security;
 
-import com.example.msauth.entity.AuthUser;
+import jqa.ms_auth.entity.AuthUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;

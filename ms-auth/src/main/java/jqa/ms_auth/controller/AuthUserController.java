@@ -1,9 +1,9 @@
-package com.example.msauth.controller;
+package jqa.ms_auth.controller;
 
-import com.example.msauth.dto.AuthUserDto;
-import com.example.msauth.entity.AuthUser;
-import com.example.msauth.entity.TokenDto;
-import com.example.msauth.service.AuthUserService;
+import jqa.ms_auth.dto.AuthUserDto;
+import jqa.ms_auth.entity.AuthUser;
+import jqa.ms_auth.entity.TokenDto;
+import jqa.ms_auth.service.AuthUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
